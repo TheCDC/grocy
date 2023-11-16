@@ -91,6 +91,7 @@
 					</th>
 					<th class="allow-grouping">{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
+					<th>Row Created Timestamp</th>
 					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<th class="allow-grouping">{{ $__t('Done by') }}</th>
 					@endif
@@ -130,6 +131,11 @@
 						@if($choreLogEntry->skipped == 1)
 						<span class="text-muted">{{ $__t('Skipped') }}</span>
 						@endif
+					</td>
+					<td>
+						<span>{{ $choreLogEntry->row_created_timestamp }}</span>
+						<time class="timeago timeago-contextual"
+							datetime="{{ $choreLogEntry->row_created_timestamp }}"></time>
 					</td>
 					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<td>
